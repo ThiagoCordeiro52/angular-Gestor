@@ -1,32 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
+
+interface Task {
+  id: number;
+  description: string;
+}
+interface task {
+  id: number;
+  description: string;
+}
 
 @Component({
   selector: 'app-root',
-  template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
-    <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
-    </ul>
-    <router-outlet></router-outlet>
-  `,
-  styles: []
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Gestor';
-}
+export class AppComponent implements OnInit {
+  title = 'Gestor | Seu gerenciador de tarefas';
+  tasks!: Task[];
+  myTask!: string;
+  taskEdit!: string;
+  editMode =  false;
+  loading = false;
+  constructor(private appservice: AppService) {}
+ ngOnInit() {
+  this.getAllTasks();
+  } //ngOnInit
+ getAllTasks() {
+  this.appservice.getTasks().subscribe(data => {
+  this.tasks = data;
+  });
+  } //getAllTasks
+ create() {
+  this.loading = true;
+  const postData = {
+  description: this.myTask
+  };
+ this.appservice.createTask(postData).subscribe(data => {
+  this.loading = false;
+  this.getAllTasks();
+  this.myTask = '';
+  });
+  } //create
+ edit(task: task) {
+  this.taskEdit = Object.assign({}, task);
+  task.editing = true;
+  this.editMode = true;
+  } //edit
+ saveEdit(task: task) {
+  this.appservice.updateTask(this.taskEdit).subscribe(data => {
+  //task = data;
+  this.getAllTasks();
+  task.editing = false;
+  this.editMode = false;
+  });
+  } //saveEdit
+ delete(task) {
+  console.log('Delete');
+  this.appservice.deleteTask(task.id).subscribe(data => {
+  this.getAllTasks();
+  });
+  } //delete
+ }
