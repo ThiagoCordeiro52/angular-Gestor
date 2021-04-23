@@ -1,0 +1,28 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "Tarefa 1",
+            "responsible": "João",
+            "Description": "Fazer o front-end",
+            "deadline": "2021-06-29",
+            "priority": "alta"
+        },
+        {
+            "id": 2,
+            "title": "Tarefa 2",
+            "responsible": "Marcos",
+            "Description": "Fazer o back-end",
+            "deadline": "2021-06-29",
+            "priority": "alta"
+        },
+        {
+            "id": 3,
+            "title": "Tarefa 3",
+            "responsible": "Thiago",
+            "Description": "Fazer o Mobile",
+            "deadline": "2021-06-29",
+            "priority": "baixa"
+        }
+    ]
+}

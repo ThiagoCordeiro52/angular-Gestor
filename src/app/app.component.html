@@ -1,4 +1,24 @@
 <app-register></app-register>
-<table><tr *ngFor="let task of tasks"> <td>{{ task.id }}</td></tr></table>
-
-
+<table>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">DESCRIPTION</th>
+            <th scope="col">RESPONSIBLE</th>
+            <th scope="col">DEADLINE</th>
+            <th scope="col">PRIORITY</th>
+            <th scope="col">ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{task.id}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{{task.responsible}}</td>
+            <td>{{task.deadline}}</td>
+            <td>{{task.priority}}</td>
+        </tr>
+    </tbody>
+</table>
