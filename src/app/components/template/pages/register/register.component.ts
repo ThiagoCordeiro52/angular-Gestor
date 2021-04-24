@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+ import { Component, OnInit } from '@angular/core';
+ import { NavComponent } from '../../nav/nav.component';
+ import { HeaderComponent } from '../../header/header.component';
 
 @Component({
   selector: 'app-register',
