@@ -1,10 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
-
+:root {
+    font-size: 60%;
+}
 html, body { 
-    height: 100%; 
+    height: 100vh;
+    width: 100vw;
 }
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-family: Poppins, Roboto, "Helvetica Neue", sans-serif; 
     box-sizing: border-box;
+}
+
+body,
+input,
+button, 
+textarea {
+    /* font: 500 1.6rem Poppins; */
+    font-weight: 500;
+    font-family: Poppins;
+    font-size: 1.6rem;
+}
+
+
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 62.5%; /* todo 1rem vai ser relativo a 10px*/
+    }
 }

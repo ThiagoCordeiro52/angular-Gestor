@@ -1,1 +1,22 @@
-<p>list works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Número</th>
+        <th scope="col">Título</th>
+        <th scope="col">Responsável</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{task.id}}</td>
+        <td>{{task.title}}</td>
+        <td>{{task.responsible}}</td>
+        <td>Ações</td>
+        <td>
+          <button type="button" class="btn btn-warning btn-sm" (click)="editTask(task)">Editar</button>
+          <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteTask(task)">Deletar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

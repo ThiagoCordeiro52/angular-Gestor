@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/template/header/header.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card'
 import { NavComponent } from './components/template/nav/nav.component'
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
@@ -35,7 +36,8 @@ import { ListComponent } from './components/template/pages/list/list.component';
     // HttpClientInMemoryWebApiModule.forRoot(MyInMemoryService),
     // InMemoryWebApiModule.forRoot(FakeBackendService),
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

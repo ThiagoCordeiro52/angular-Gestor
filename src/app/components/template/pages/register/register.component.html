@@ -1,17 +1,49 @@
+<mat-card class="registercard  mat-elevation-z3">
+    <mat-card-title class="titlecard">
+        Bem-vindo ao Gestor!
+    </mat-card-title>
+    <mat-card-subtitle class="subtitlecard">
+        Seu sistema de gestão de tarefas
+    </mat-card-subtitle>
+</mat-card>
+
 <main class="mainclass">
-    <div class="titleClass">
-        <span class="titlearea">Título:</span> <input type="text" name="title" id="title">
-    </div>
-    <div class="description">
-        Descrição: <input type="text" name="description" id="description">
-    </div>
-    <div class="select">
-        Responsável: <select id=""></select> Prioridade <select id=""></select>
-    </div>
-    <div class="deadline">
-        Deadline: <input type="text" name="deadline" id="deadline">
-    </div>
-    <div class="button">
-        <button type="submit">Cadastrar</button>
-    </div>
+    <h1>Cadastro de Tarefa</h1>
+    <form class="form" id="add-form" (ngSubmit)="f.form.valid && saveTask(f)" #f="ngForm" novalidate>
+            <label for="title" class="titlearea">Título:</label>
+             <input class="inputtitle" type="text" [(ngModel)]="task.title" name="title" id="title" #title="ngModel" required class="form-control" [ngClass]="{'is-invalid': f.submitted && title.invalid}">
+
+            <label for="description" class="descriptionarea">Descrição:</label> 
+            <textarea name="description" id="description" cols="20" rows="10"  [(ngModel)]="task.description" #description="ngModel" required class="form-control" [ngClass]="{'is-invalid': f.submitted && description.invalid}"></textarea>
+
+            <label for="responsible" class="responsiblearea">Responsável:</label>  
+            <div class="selects">
+                <select class="form-control" type="text"  [(ngModel)]="task.responsible" name="responsible" id="responsible" #responsible="ngModel" required class="form-control" [ngClass]="{'is-invalid': f.submitted && responsible.invalid}" >
+                    <option value =""disabled="" hidden="">Selecione uma opção</option>
+                    <option value="João">João</option>
+                    <option value="Marcos">Marcos</option>
+                    <option value="Thiago">Thiago</option>
+                </select> 
+
+                <div class="content-priority">
+                <label for="priority">Prioridade: </label>   
+                <select class="form-control" type="text" id="priority" [(ngModel)]="task.priority" #priority="ngModel" required class="form-control" name="priority" [ngClass]="{'is-invalid': f.submitted && priority.invalid}">
+                    <option value="" disabled="" hidden="">Selecione uma opção</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Média">Média</option>
+                    <option value="Baixa">Baixa</option>
+                </select>
+                </div>
+
+        </div>
+
+            <label for="deadline" class="deadlinearea">Deadline:</label>  
+            <input type="date" name="deadline" id="deadline" [(ngModel)]="task.deadline" #deadline="ngModel" required class="form-control" [ngClass]="{'is-invalid': f.submitted && deadline.invalid}">
+
+        <div class="button">
+            <button type="submit" id="buttoncadastrar" >Cadastrar</button>
+            <button type="reset" id="buttoncancelar" (click)="cleanForm(f)">Cancelar</button>
+            <!-- <button type="submit">Cadastrar</button> -->
+        </div>
+    </form>
     </main>

@@ -1,0 +1,176 @@
+:root {
+    font-size: 60%;
+}
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 62.5%; /* todo 1rem vai ser relativo a 10px*/
+    }
+}
+
+* {
+    font-size: 100%;
+}
+
+main.mainclass {
+    height: 58vh;
+    width: 80vw;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 3fr 1fr 1fr 2fr;
+    grid-template-areas: "labeltitle inputtitle"
+    "labeldescription inputdescription"
+    "labelresponsible content"
+    "labeldeadline inputdeadline"
+    ". button"
+    ;
+}
+
+/* CONFIGURAÇÃO DO GRID DO FORMULÁRIO */
+label.titlearea {
+    padding-top: 0.3rem;
+    padding-right: 3rem;
+    grid-area: labeltitle;
+    text-align: right;
+}
+
+input#title {
+    grid-area: inputtitle;
+    width: 60vw;
+    height: 4vh;
+}
+
+.descriptionarea {
+    padding-top: 0.3rem;
+    grid-area: labeldescription;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+#description {
+    grid-area: inputdescription;
+}
+
+.responsiblearea {
+    grid-area: labelresponsible;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+.selects {
+    grid-area: content;
+}
+
+.deadlinearea {
+    padding-top: 0.3rem;
+    grid-area: labeldeadline;
+    padding-right: 3rem;
+    text-align: right;
+}
+
+#deadline {
+    grid-area: inputdeadline;
+    height: 4vh;
+    width: 10vw;
+    
+}
+
+/* ==================================================== */
+
+.button {
+    grid-area: button;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.button button {
+    color: white;
+    text-decoration: background-color 0.5s;
+}
+
+#buttoncadastrar {
+    margin-right: 1rem;
+    background-color: green;
+}
+
+#buttoncadastrar:hover {
+    background-color: rgb(25, 175, 25);
+}
+
+#buttoncancelar {
+    background-color: red;
+}
+
+#buttoncancelar:hover {
+    background-color: rgb(216, 53, 53);
+}
+
+.registercard .titlecard {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2rem;
+}
+
+.registercard .subtitlecard {
+    font-size: 1.4rem;
+    padding-top: 1.2rem;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+}
+
+#description {
+    width: 60vw;
+    height: 20vh;
+    /* margin-bottom: 1rem; */
+}
+
+input.description {
+    text-align: left;
+}
+
+.registertask {
+    height:80%;
+    width: 80%;
+}
+
+h1 {
+    padding: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.selects {
+    display:flex;
+    justify-content: space-between;
+}
+
+select#responsible {
+    width: 10vw;
+}
+
+
+select#priority {
+    margin-left: 3rem;
+    width: 10vw;
+}
+
+.content-priority {
+    display: flex;
+    flex-direction: row;
+}

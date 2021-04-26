@@ -12,6 +12,24 @@
 }
 
 .content {
-    padding: 16px;
+    padding: 2rem;
     background-color: #FFF;
+}
+
+a.cadastroclass {
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+a.cadastroclass:hover {
+    color: #DDD9CE;
+    text-decoration: underline;
+}
+
+a.listagemclass {
+    transition: color 0.8s, text-decoration 0.8s;
+}
+
+a.listagemclass:hover {
+    color: #DDD9CE;
+    text-decoration: underline;
 }
