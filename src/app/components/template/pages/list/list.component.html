@@ -1,22 +1,51 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Número</th>
-        <th scope="col">Título</th>
-        <th scope="col">Responsável</th>
-        <th scope="col">Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let task of tasks">
-        <td>{{task.id}}</td>
-        <td>{{task.title}}</td>
-        <td>{{task.responsible}}</td>
-        <td>Ações</td>
-        <td>
-          <button type="button" class="btn btn-warning btn-sm" (click)="editTask(task)">Editar</button>
-          <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteTask(task)">Deletar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<main>
+  <div class="filter">
+    <label for="number" class="number">Número:</label> <input class="inputnumber" type="text" name="number" id="number">
+    <label for="title/description" class="title">Título/Descrição:</label> <input class="inputtitle" type="text" name="title" id="title/description" id="title/description">
+
+    <label for="responsible" class="responsiblearea">Responsável:</label>  
+        <select type="text" class="selectresponsible"  name="responsible" id="responsible" >
+            <option value =""disabled="" hidden="">Selecione uma opção</option>
+            <option value="João">João</option>
+            <option value="Marcos">Marcos</option>
+            <option value="Thiago">Thiago</option>
+        </select>
+
+
+    <div class="situation">
+    <label for="situation"></label> <select class="selectsituation" name="situation" id="situation" >
+      <option value =""disabled="" hidden="">Selecione uma opção</option>
+      <option value="Em andamento">Em andamento</option>
+      <option value="Concluída">Concluída</option>
+    </select> 
+
+
+    <button class="button" type="submit">Buscar Tarefas </button>
+  </div>
+  </div>
+
+  <div class="divtable">
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Número</th>
+          <th scope="col">Título</th>
+          <th scope="col">Responsável</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{task.id}}</td>
+          <td>{{task.title}}</td>
+          <td>{{task.responsible}}</td>
+          <td>Ações</td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm" (click)="editTask(task)">Editar</button>
+            <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteTask(task)">Deletar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>

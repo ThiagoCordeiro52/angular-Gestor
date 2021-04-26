@@ -1,0 +1,91 @@
+:root {
+    font-size: 60%;
+}
+
+@media (min-width: 700px) {
+    :root {
+        font-size: 62.5%; /* todo 1rem vai ser relativo a 10px*/
+    }
+}
+
+main {
+    height: 58vh;
+    width: 80vw;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; */
+}
+
+div.filter {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    gap: 1rem;
+    grid-template-areas: "number inputnumber . ."
+    "title inputtitle inputtitle inputtitle"
+    "responsible selectresponsible situation .";
+}
+
+.number {
+    grid-area: number;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.inputnumber {
+    grid-area: inputnumber;
+    width: 12vw;
+    height: 3.5vh;
+}
+
+.title {
+    grid-area: title;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.inputtitle {
+    grid-area: inputtitle;
+    height: 3.5vh;
+    width: 80%;
+}
+
+.responsiblearea {
+    grid-area: responsible;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+select.selectresponsible {
+    height: 3.5vh;
+}
+
+select.selectresponsible {
+    grid-area: selectresponsible;
+}
+
+.situation {
+    grid-area: situation;
+    display: flex;
+    justify-content: space-between;
+}
+
+select.selectsituation {
+    height: 3.5vh;
+}
+
+.button {
+    grid-area: buttonget;
+    height: 3.8vh;
+}
+
+button.button {
+    padding-bottom: 0.3rem;
+    color: white;
+    background-color:rgba(0, 0, 255, 0.829);
+}
+
+.table {
+    margin-left: 2rem;
+}
